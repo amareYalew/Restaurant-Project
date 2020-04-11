@@ -11,14 +11,12 @@ import {Provider} from 'react-redux'
 // import resultReducer from './store/resultReducer';
 
 import reducer from './store/reducer/reducer'
+import rootReducer from './store/reducer/rootReducer';
 
-// const rootReducer = combineReducers({
-//     ctr:counterReducer,
-//     res:resultReducer
-// })
 const logger = store => {
     return next => {
         return action => {
+
             const result=next(action)
             return result
         }
@@ -26,6 +24,7 @@ const logger = store => {
 }
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const myStore = createStore(reducer,applyMiddleware(logger,thunk))
+
 
 ReactDOM.render(<Provider store = {myStore} > <App/></Provider>, document.getElementById('root'));
 registerServiceWorker();
