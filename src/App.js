@@ -9,8 +9,6 @@ import Layout from './Components/Layout'
 import { NavigationBar } from './Components/NavigationBar'
 import{Jumbotron} from './Components/Jumbotron'
 
-
-
 class App extends React.Component {
 
   render() {
