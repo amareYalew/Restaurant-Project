@@ -2,37 +2,37 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class SignUpForm extends Component {
-    // constructor() {
-    //     super();
+    constructor() {
+        super();
 
-    //     this.state = {
-    //         email: '',
-    //         password: '',
-    //         name: '',
-    //         hasAgreed: false
-    //     };
+        this.state = {
+            email: '',
+            password: '',
+            name: '',
+            hasAgreed: false
+        };
 
-    //     this.handleChange = this.handleChange.bind(this);
-    //     this.handleSubmit = this.handleSubmit.bind(this);
-    // }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-    // handleChange(e) {
-    //     let target = e.target;
-    //     let value = target.type === 'checkbox' ? target.checked : target.value;
-    //     let name = target.name;
+    handleChange(e) {
+        let target = e.target;
+        let value = target.type === 'checkbox' ? target.checked : target.value;
+        let name = target.name;
 
-    //     this.setState({
-    //         [name]: value
-    //     });
-    // }
+        this.setState({
+            [name]: value
+        });
+    }
 
-    // handleSubmit(e) {
+    handleSubmit(e) {
 
-    //     e.preventDefault();
+        e.preventDefault();
 
-    //     console.log('The form was submitted with the data');
-    //     console.log(this.state);
-    // }
+        console.log('The form was submitted with the data');
+        console.log(this.state);
+    }
 
     render() {
         return (
@@ -53,7 +53,7 @@ class SignUpForm extends Component {
 
                     <div className="FormField">
                         <label className="FormField__CheckboxLabel">
-                            <input className="FormField__Checkbox" type="checkbox" name="hasAgreed" value={this.state.hasAgreed} onChange={this.handleChange} /> I agree all statements in <a href="" className="FormField__TermsLink">terms of service</a>
+                            <input className="FormField__Checkbox" type="checkbox" name="hasAgreed" value={this.state.hasAgreed} onChange={this.handleChange} /> I agree all statements in <a href="" >terms of service</a>
                         </label>
                     </div>
 

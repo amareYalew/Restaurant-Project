@@ -4,18 +4,15 @@
   display: flex;
   color: white;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -26,11 +23,9 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
 .App-link {
   color: #61dafb;
 }
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -124,17 +119,17 @@
 }
 
 .FormField__Label {
-  display: block;
+  display: flex;
   text-transform: uppercase;
   font-size: .9em;
-  color: white;
+  color: rgb(136, 83, 83);
 }
 .FormField__Input {
   width: 85%;
   background-color: transparent;
   border: none;
-  color: white;
-  outline: none;
+  color: rgb(15, 12, 12);
+  outline: floralwhite;
   border-bottom: 1px solid #445366;
   font-size: 1em;
   font-weight: 300;
@@ -161,7 +156,7 @@
   color: #66707D;
   text-decoration: none;
   display: inline-block;
-  border-bottom: 1.5px solid #225E62;
+  /* border-bottom: 1.5px solid #225E62; */
   padding-bottom: 5px;
 }
 
