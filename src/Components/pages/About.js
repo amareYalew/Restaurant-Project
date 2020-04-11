@@ -10,7 +10,7 @@ import React from 'react'
           <p>But how do you put together a great website when you - the restaurant owner or operator - 
           are busy with the many other critical tasks related to running your restaurant?</p>
 
-          <p>Well, building the best restaurant website  have to be a time-consuming or difficult task. 
+          <p>Well, building the best restaurant website doesn’t have to be a time-consuming or difficult task. 
           In many cases, there are simple things you can build into your website to share the most important 
           information with your frequent and potential guests.</p>
               

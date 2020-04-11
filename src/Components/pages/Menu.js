@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import * as actionTypes from './store/actions/action'
+import * as actionTypes from '../../store/actions/action'
 import { connect } from 'react-redux';
-import * as actionCreators from '../src/store/actions/action'
+import * as actionCreators from '../../store/actions/action'
 
 class Home extends Component {
 
@@ -19,7 +19,7 @@ class Home extends Component {
                             return (
                                 <article onClick={() => { this.props.onPostFood (this.props.id)}}>
                                     <div key={index} style={recipecss}>
-                                        {/* {JSON.strin gify(recipe)} */}
+                    
                                         <li>{recipe.recipe.label}</li>
                                         <img src={recipe.recipe.image}style={imgcss}></img>
                                         {recipe.recipe.yield}
@@ -43,14 +43,17 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDiapatchToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
     return {
 
         onGetFood: () => dispatch(actionCreators.fetchFoodAsync()),
         onPostFood:(id) =>dispatch(actionCreators.fetchPostFood(id))
     }
 }
-export default connect(mapStateToProps, mapDiapatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
+
+
+
 
 const recipecss = {   
     borderRadius: "5px",
