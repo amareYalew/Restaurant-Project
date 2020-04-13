@@ -5,7 +5,8 @@ const initialState = {
     login: { email: "", password: "" },
     signUp: { fullName: "", password: "", email: '' },
     isLogin: false,
-    isRegister:false
+    isRegister: false,
+    item: null
 }
 
 
@@ -18,6 +19,12 @@ const reducer = (state = initialState, action) => {
                 menuItems: action.foods
                
             };
+        
+            case ('FOODITEM'):
+                return {
+                    ...state,
+                    item: action.foods
+                }
         
         case 'CREATEMENU': 
             const copyOfMenu = { ...state.menu };
@@ -55,13 +62,6 @@ const reducer = (state = initialState, action) => {
                 menuForm:copyOfMenuForm
                
             };
-        
-        
-        
-        
-        
-        
-    
         
          // Updating  isLogin state from action page; 
         case 'loginSubmit':

@@ -13,9 +13,9 @@ import Layout from './Components/Layout';
 import { NavigationBar } from './Components/NavigationBar';
 import { Jumbotron } from './Components/Jumbotron';
 import UmerPage from './Components/pages/Forms/umerPage';
+import FoodItem from './Components/pages/FoodItem';
+// import Order from './Components/pages/Order'
 import './App.css';
-
-
 
 class App extends React.Component {
 
@@ -33,6 +33,8 @@ class App extends React.Component {
               <Route exact path='/menu' component={Menu} />
               <Route path='/about' component={About} />
               <Route path='/contact' component={Contact} />
+              <Route path='/fooditem/:id' component={FoodItem} />
+              {/* <Route path='/orders/' component={Orders} /> */}
               <Route path='/form' component={FoodForm} />
               <Route path ='/cart' component = {Cart}/>
               <Route path='/signin' component={SignInForm}/>
