@@ -43,7 +43,7 @@ export const userLogin = () => {
                   password: userLogin.password
                 }
             }).then(res => { 
-                if (res == true) { 
+                if (res ===true) { 
                     dispatch({ type: 'loginsubmit',success:true });
                 }
                 else {
@@ -73,7 +73,7 @@ export const userSignUpRegis= () => {
                     email:userSignUp.email,
                 }
             }).then(res => { 
-                if (res == true) { 
+                if (res === true) { 
                     dispatch({ type: 'signUpSubmit',success:true });
                 }
 
@@ -107,7 +107,39 @@ export const foodItemFetching= () => {
                     description:FoodItemForm.image
                 }
             }).then(res => { 
-                if (res == true) { 
+                if (res === true) { 
+                    dispatch({ type: 'signUpSubmit',success:true });
+                }
+                else {
+                    dispatch({ type: 'signUpSubmit',success:false });
+                }
+            })
+           
+        }
+    
+
+}
+export const foodItemFetchingUmer= () => { 
+
+    
+    return (dispatch, getState) => {
+            
+        const FoodItemForm = getState().umerReducer.menuAddForm;
+         console.log(getState().umerReducer.menuAddForm)
+     
+       
+            axios({
+                method: 'post',
+                url: '/user/12345',
+                data: {
+                    title:FoodItemForm.title,
+                    price:FoodItemForm.price,
+                    ingredient: FoodItemForm.ingredient,
+                    image: FoodItemForm.image,
+                    description:FoodItemForm.image
+                }
+            }).then(res => { 
+                if (res === true) { 
                     dispatch({ type: 'signUpSubmit',success:true });
                 }
                 else {

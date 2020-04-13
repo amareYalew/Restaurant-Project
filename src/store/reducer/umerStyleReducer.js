@@ -41,7 +41,7 @@ const initialState = {
            
         },
         description: {
-            label :'',
+            label :'description',
             elementType: 'textarea',
             value: '',
             elementConfig: {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron as Jumbo, container, Container } from 'react-bootstrap';
+import { Jumbotron as Jumbo,Container } from 'react-bootstrap';
 import styled from 'styled-components'
 import RestaurantImg from '../assets/resturant.jpg'
 

@@ -7,18 +7,31 @@ class UmerForm extends Component {
 
 
   render() {
-    console.log("......")
-    let inputElement = null; 
+    console.log(this.props.elementType)
+      let inputElement = null; 
+      
         
       switch(this.props.elementType){
           case ("input"):
-              inputElement = <input onChange={(event) => { this.props.onchanged(event) }} value={this.props.value}{...this.props.elementConfig} />
+              inputElement =
+                  <div className="FormField">
+                      <input onChange={(event) => { this.props.onchanged(event) }}
+                      value={this.props.value}{...this.props.elementConfig} />
+              </div>
               break;
           case ("textarea"):
-              inputElement = <input  onChange={(event) => { this.props.onchanged(event) }} value={this.props.value} {...this.props.elementConfig} />
+              inputElement =
+                  <div className="FormField">
+                      <input onChange={(event) => { this.props.onchanged(event) }}
+                      value={this.props.value} {...this.props.elementConfig} />
+              </div>
               break;
           default:
-              inputElement=<input  onChange={(event) => { this.props.onchanged(event) }} value={this.props.value}{...this.props.elementConfig} />
+              inputElement =
+                  <div className="FormField">
+                  <input onChange={(event) => { this.props.onchanged(event) }}
+                      value={this.props.value}{...this.props.elementConfig} />
+                  </div>
   
       }
       

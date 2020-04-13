@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux'
-import { createSignIn } from '../../store/actions/CreFoodAction'
+import { connect } from 'react-redux';
 import { userLogin } from '../../store/actions/action'
 
 class SignInForm extends Component {
