@@ -1,59 +1,37 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux'
+
+import {userSignUpRegis} from '../../store/actions/action'
 
 class SignUpForm extends Component {
-    constructor() {
-        super();
 
-        this.state = {
-            email: '',
-            password: '',
-            name: '',
-            hasAgreed: false
-        };
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleChange(e) {
-        let target = e.target;
-        let value = target.type === 'checkbox' ? target.checked : target.value;
-        let name = target.name;
-
-        this.setState({
-            [name]: value
-        });
-    }
-
-    handleSubmit(e) {
-
-        e.preventDefault();
-
-        console.log('The form was submitted with the data');
-        console.log(this.state);
-    }
 
     render() {
+        console.log(this.props)
         return (
             <div className="FormCenter">
-                <form onSubmit={this.handleSubmit} className="FormFields">
+                <form onSubmit={(event) => { this.props.onSinUpSubmit(event) }} className="FormFields">
                     <div className="FormField">
                         <label className="FormField__Label" htmlFor="name">Full Name</label>
-                        <input type="text" id="name" className="FormField__Input" placeholder="Enter your full name" name="name" value={this.state.name} onChange={this.handleChange} />
+                        <input type="text" id="name" className="FormField__Input" placeholder="Enter your full name" name="name" value={this.props.reducer.signUp.fullName} onChange={(event) =>
+                        { this.props.onSignUpInputHandler(event, "fullName") }}  />
                     </div>
                     <div className="FormField">
                         <label className="FormField__Label" htmlFor="password">Password</label>
-                        <input type="password" id="password" className="FormField__Input" placeholder="Enter your password" name="password" value={this.state.password} onChange={this.handleChange} />
+                        <input type="password" id="password" className="FormField__Input" placeholder="Enter your password" name="password" value={this.props.reducer.signUp.password}  onChange={(event) =>
+                        { this.props.onSignUpInputHandler(event, "password") }}  />
                     </div>
                     <div className="FormField">
                         <label className="FormField__Label" htmlFor="email">E-Mail Address</label>
-                        <input type="email" id="email" className="FormField__Input" placeholder="Enter your email" name="email" value={this.state.email} onChange={this.handleChange} />
+                        <input type="email" id="email" className="FormField__Input" placeholder="Enter your email" name="email" value={this.props.reducer.signUp.email} onChange={(event) =>
+                        { this.props.onSignUpInputHandler(event, "email") }}  />
                     </div>
 
                     <div className="FormField">
                         <label className="FormField__CheckboxLabel">
-                            <input className="FormField__Checkbox" type="checkbox" name="hasAgreed" value={this.state.hasAgreed} onChange={this.handleChange} /> I agree all statements in <a href="" >terms of service</a>
+                            <input className="FormField__Checkbox" type="checkbox" name="hasAgreed" value={this.props.hasAgreed} /> I agree all statements in <a href="" >terms of service</a>
                         </label>
                     </div>
 
@@ -65,9 +43,28 @@ class SignUpForm extends Component {
             </div>
         );
     }
-}
 
-export default SignUpForm;
+}
+// Accessing State
+const mapStateToProps = state => { 
+    return {...state}
+}
+// sending Data to state by dispatch
+const mapDispatchToProps = dispatch => {
+    return {
+      onSignUpInputHandler: (event, field) =>
+        dispatch({ type: 'SIENUPFORMINPUT', field: field, event: event }),
+      
+      
+      onSinUpSubmit: (event) => {
+        // dispatch({ type: 'SIGNUPSUBMIT' })
+          dispatch( userSignUpRegis())
+             event.preventDefault()
+      }
+    }
+  }
+  export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm)
+
 const recipecss = {   
   borderRadius: "5px",
   boxShadow: "0px 5px 20px rgb(71,71,71)",

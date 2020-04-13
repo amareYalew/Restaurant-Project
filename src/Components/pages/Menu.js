@@ -10,12 +10,12 @@ class Home extends Component {
     }
 
     render() {
-        console.log(this.props.menuItems)
+        console.log(this.props.reducer.menuItems)
         return (
             <div >
                 <ul>
                     {
-                        this.props.menuItems ? this.props.menuItems.map((recipe, index) => {
+                        this.props.reducer.menuItems ? this.props.reducer.menuItems.map((recipe, index) => {
                             return (
                                 <article onClick={() => { this.props.onPostFood (this.props.id)}}>
                                     <div key={index} style={recipecss}>
@@ -47,7 +47,7 @@ const mapDispatchToProps = dispatch => {
     return {
 
         onGetFood: () => dispatch(actionCreators.fetchFoodAsync()),
-        onPostFood:(id) =>dispatch(actionCreators.fetchPostFood(id))
+        // onPostFood:(id) =>dispatch(actionCreators.createProject ())
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

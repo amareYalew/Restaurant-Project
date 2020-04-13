@@ -8,9 +8,11 @@ import NoMatch from './Components/pages/NoMatch';
 import Cart from './Components/pages/Cart'
 import SignUpForm from './Components/pages/SignUpForm';
 import SignInForm from './Components/pages/SignInForm';
+import FoodForm from './Components/pages/FoodForm'
 import Layout from './Components/Layout';
 import { NavigationBar } from './Components/NavigationBar';
 import { Jumbotron } from './Components/Jumbotron';
+import UmerPage from './Components/pages/Forms/umerPage';
 import './App.css';
 
 
@@ -31,9 +33,11 @@ class App extends React.Component {
               <Route exact path='/menu' component={Menu} />
               <Route path='/about' component={About} />
               <Route path='/contact' component={Contact} />
+              <Route path='/form' component={FoodForm} />
               <Route path ='/cart' component = {Cart}/>
               <Route path='/signin' component={SignInForm}/>
-              <Route exact path='/signup' component={SignUpForm }/>
+              <Route exact path='/signup' component={SignUpForm} />
+              <Route path="/umer"component={UmerPage}/>
               <Route component={NoMatch} />
             </Switch>
           </Layout>
