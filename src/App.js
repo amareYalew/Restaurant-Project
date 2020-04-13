@@ -14,8 +14,11 @@ import { NavigationBar } from './Components/NavigationBar';
 import { Jumbotron } from './Components/Jumbotron';
 import UmerPage from './Components/pages/Forms/umerPage';
 import FoodItem from './Components/pages/FoodItem';
-// import Order from './Components/pages/Order'
+import AdminItem from '../src/Components/AdminComponent/AdminFoodList';
+import EditPage from '../src/Components/pages/EditPage';
+
 import './App.css';
+
 
 class App extends React.Component {
 
@@ -31,15 +34,15 @@ class App extends React.Component {
             <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/menu' component={Menu} />
-              <Route path='/about' component={About} />
+              <Route path='/items' component={AdminItem} />
               <Route path='/contact' component={Contact} />
               <Route path='/fooditem/:id' component={FoodItem} />
-              {/* <Route path='/orders/' component={Orders} /> */}
               <Route path='/form' component={FoodForm} />
               <Route path ='/cart' component = {Cart}/>
               <Route path='/signin' component={SignInForm}/>
               <Route exact path='/signup' component={SignUpForm} />
               <Route path="/umer"component={UmerPage}/>
+              <Route path="/edit/:id"component={EditPage}/>
               <Route component={NoMatch} />
             </Switch>
           </Layout>
