@@ -10,13 +10,13 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
     const title = req.body.title;
     const price = Number(req.body.price);
-    const imageUrl = req.body.imageUrl;
+    const image = req.body.image;
     const description = req.body.description;
 
     const newProduct = new Product({
         title,
         price,
-        imageUrl,
+        image,
         description
 
     });
@@ -44,7 +44,7 @@ router.route('/update/:id').post((req, res) => {
         .then(product => {
             product.title = req.body.title;
             product.price = Number(req.body.price);
-            product.imageUrl = req.body.imageUrl;
+            product.image = req.body.image;
             product.description = req.body.description;
 
             product.save()

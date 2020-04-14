@@ -62,9 +62,10 @@ export const userSignUpRegis= () => {
                 method: 'post',
                 url: 'http://localhost:5000/users/add',
                 data: {
-                    username:userSignUp.fullName,
+                    username:userSignUp.username,
                     email: userSignUp.email,
                     password: userSignUp.password,
+                    role: userSignUp.role
                 }
             }).then(res => { 
                 if (res === true) { 
@@ -99,9 +100,9 @@ export const foodItemFetching= () => {
                 data: {
                     title:FoodItemForm.title,
                     price:FoodItemForm.price,
-                    ingredient: FoodItemForm.ingredient,
-                    image: FoodItemForm.image,
-                    description:FoodItemForm.image
+                    image: FoodItemForm.image, 
+                    description: FoodItemForm.description
+                
                 }
             })
            
@@ -124,9 +125,8 @@ export const foodItemFetchingUmer= () => {
                 data: {
                     title:FoodItemForm.title,
                     price:FoodItemForm.price,
-                    ingredient: FoodItemForm.ingredient,
-                    image: FoodItemForm.image,
-                    description:FoodItemForm.image
+                    image: FoodItemForm.image, 
+                    description: FoodItemForm.description
                 }
             })
            

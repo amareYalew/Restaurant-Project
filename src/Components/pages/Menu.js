@@ -2,24 +2,26 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/action'
 import { Link } from 'react-router-dom'
-class Home extends Component {
+class Menu extends Component {
 
     componentDidMount = () => {
         this.props.onGetFood();
     }
 
     render() {
-        
-        console.log(this.props.reducer.menuItems)
+
+        // console.log(this.props.reducer.menuItems)
         const FoodItems = this.props.reducer.menuItems ? this.props.reducer.menuItems.map((item, index) => {
             return (
-                <Link to={`/fooditem/${index}`} key={index}>
-                    <div style={foodCss}>
-                        <li>{item.title}</li>
-                        <img src={item.imageURL} style={imgcss}></img>
-                        {item.price}
-                    </div>
-                </Link>
+                <div style={foodCss}>
+                    <>{item.title}</>
+                    <Link to={`/fooditem/${index}`} key={index}>
+
+                        <img src={item.image} style={imgcss}></img>
+                    </Link>
+                        $ {item.price}
+                </div>
+
             )
 
         }) : null
@@ -43,18 +45,18 @@ const mapDispatchToProps = dispatch => {
     return {
 
         onGetFood: () => dispatch(actionCreators.fetchFoodAsync()),
-       
+
     }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);
 
 
 
 
-const foodCss = {   
+const foodCss = {
     borderRadius: "5px",
     boxShadow: "0px 5px 20px rgb(71,71,71)",
-    margin:"10px",
+    margin: "10px",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-around",
@@ -65,5 +67,7 @@ const foodCss = {
 const imgcss = {
     borderRadius: "100%",
     width: "100px",
-    hight :"100px"
+    hight: "100px",
+    hover : 'true'
+
 }

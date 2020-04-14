@@ -9,19 +9,17 @@ class FoodItem extends Component {
 
     
         return (
-          
                 
-             
-               <Link to={`/Orders/`}> 
+               
                 <div style={foodCss}>
                     <p>{this.props.reducer.menuItems[this.props.match.params.id].title}</p>
-                    <img src={this.props.reducer.menuItems[this.props.match.params.id].imgURL}></img>
+                    <img src={this.props.reducer.menuItems[this.props.match.params.id].image}></img>
                     <p> Price: {'$'}{this.props.reducer.menuItems[this.props.match.params.id].price}</p>
-                
-                    <p> Click To Add To Orders </p> 
+                    <p> ingredents:{this.props.reducer.menuItems[this.props.match.params.id].description}</p>
+
+                    <Link to={`/Orders/`}><p> Add To Orders </p> </Link> 
                
                 </div>
-               </Link>
             )
          }
     }

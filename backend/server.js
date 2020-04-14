@@ -1,4 +1,6 @@
 const express = require('express')
+const path = require('path');
+
 const cors = require('cors');
 const mongoose = require('mongoose'); // require us to connect with the DB
 // to have envi variable in .env file
@@ -11,6 +13,8 @@ const port = process.env.PORT || 5000;
 // cors middleware, allow us to parse json
 app.use(cors());
 app.use(express.json());
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 // database uri, where our DB stored
 const uri = process.env.ATLAS_URI;

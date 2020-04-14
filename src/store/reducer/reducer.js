@@ -1,9 +1,9 @@
 
 const initialState = {
     menuItems: null,
-    menuForm: { title: "", price: "", ingredient: "", image: "" ,description:""},
+    menuForm: { title: "", price: "", image: "" ,description:""},
     login: { email: "", password: "" },
-    signUp: { username: "",  email: '',password: ""},
+    signUp: { username: "",  email: '',password: "", role: ""},
     isLogin: false,
     isRegister: false,
     item: null

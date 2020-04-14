@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/adminAction'
 import { Link } from 'react-router-dom'
+
 class Home extends Component {
 
     componentDidMount = () => {
@@ -18,9 +19,9 @@ class Home extends Component {
                 <div style={foodCss}>
                 <Link  key={index}>
                         <div >
-                        <li>{item.title}</li>
-                        <img src={item.imageURL} style={imgcss}></img>
-                        <h6>{item.price}</h6>
+                        <h5>{item.title}</h5>
+                        <img src={item.image} style={imgcss}></img>
+                         <h6> $ {item.price}</h6>
                         <p>{item._id}PPP</p> 
                         
                         {/* <Link to={`edit/id`} onClick={(event) => { this.props.onDeleteFood(item.id) }}>Edit-Item</Link> */}
