@@ -1,9 +1,9 @@
 
 const initialState = {
-    // menuItems: null,
+    menuItems: null,
     menuForm: { title: "", price: "", ingredient: "", image: "" ,description:""},
     login: { email: "", password: "" },
-    signUp: { fullName: "", password: "", email: '' },
+    signUp: { username: "",  email: '',password: ""},
     isLogin: false,
     isRegister: false,
     item: null
@@ -12,6 +12,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
 
+    // updating Menu Items from database;
     switch (action.type) {
         case ("ALL_FOODS"):
             return {
@@ -20,22 +21,9 @@ const reducer = (state = initialState, action) => {
                
             };
         
-            case ('FOODITEM'):
-                return {
-                    ...state,
-                    item: action.foods
-                }
         
-        case 'CREATEMENU': 
-            const copyOfMenu = { ...state.menu };
-            copyOfMenu[action.field] = action.event.target.value;
-            return {
-                ...state,
-                menu: copyOfMenu
-               
-            };
         // Updating Login State from Login Form
-        case 'LOGINformInput':   
+        case 'LOGINFORMINPUT':   
             const copyoflogin = { ...state.login }//copy login state
             copyoflogin[action.field] = action.event.target.value;  // store user input in the state
             return {
@@ -55,13 +43,14 @@ const reducer = (state = initialState, action) => {
         
         // Updating FoodForm State from FoodForm Component 
         case 'FOODITEMFORM':   
-            const copyOfMenuForm = { ...state.menuForm }//copy login state
+            const copyOfMenuForm = { ...state.menuForm }//copy FoodMenu state
             copyOfMenuForm[action.field] = action.event.target.value  // store user input in the state
             return {
                 ...state,
                 menuForm:copyOfMenuForm
                
             };
+       
         
          // Updating  isLogin state from action page; 
         case 'loginSubmit':
@@ -71,9 +60,7 @@ const reducer = (state = initialState, action) => {
         // Updating isRegister state from action page; 
         case 'signUpSubmit':     
             return { ...state, isRegister: action.success };
-        
-
-            
+               
     default:
          return state;
     }

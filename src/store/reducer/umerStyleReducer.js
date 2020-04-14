@@ -57,7 +57,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case 'FOODITEMFORM':
+        case 'FOODLIST':
             const copyOfmenuAddForm = { ...state.menuAddForm }//copy login state
             const copyElement =   copyOfmenuAddForm[action.field]
             copyElement.value = action.event.target.value  // store user input in the state

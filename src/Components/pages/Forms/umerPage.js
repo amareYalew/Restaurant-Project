@@ -65,7 +65,7 @@ const mapDispatchToProps = dispatch => {
 
         onMenuInputHandler: (event, field) => {
             event.preventDefault();
-            dispatch({ type: 'FOODITEMFORM', event: event, field: field })
+            dispatch({ type: 'FOODLIST', event: event, field: field })
 
         },
         onFormSubmit: (event) => {

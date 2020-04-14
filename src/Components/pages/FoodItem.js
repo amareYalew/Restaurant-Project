@@ -7,16 +7,19 @@ class FoodItem extends Component {
         console.log(this.props.reducer.menuItems)
         console.log('display params id', this.props.match.params.id)
 
-        console.log('display params id', this.props)
-           return (
+    
+        return (
+          
+                
+             
                <Link to={`/Orders/`}> 
                 <div style={foodCss}>
-                   <p>{this.props.reducer.menuItems[this.props.match.params.id].recipe.label}</p>
-                   <img src={this.props.reducer.menuItems[this.props.match.params.id].recipe.image}></img>
-                    <p> Price: {'$'}{this.props.reducer.menuItems[this.props.match.params.id].recipe.yield}</p>
+                    <p>{this.props.reducer.menuItems[this.props.match.params.id].title}</p>
+                    <img src={this.props.reducer.menuItems[this.props.match.params.id].imgURL}></img>
+                    <p> Price: {'$'}{this.props.reducer.menuItems[this.props.match.params.id].price}</p>
                 
-                    <p> Click To Add To Orders </p>
-              
+                    <p> Click To Add To Orders </p> 
+               
                 </div>
                </Link>
             )

@@ -10,14 +10,14 @@ class Home extends Component {
 
     render() {
         
-        console.log(this.props)
+        console.log(this.props.reducer.menuItems)
         const FoodItems = this.props.reducer.menuItems ? this.props.reducer.menuItems.map((item, index) => {
             return (
                 <Link to={`/fooditem/${index}`} key={index}>
                     <div style={foodCss}>
-                        <li>{item.recipe.label}</li>
-                        <img src={item.recipe.image} style={imgcss}></img>
-                        {item.recipe.yield}
+                        <li>{item.title}</li>
+                        <img src={item.imageURL} style={imgcss}></img>
+                        {item.price}
                     </div>
                 </Link>
             )
@@ -31,33 +31,9 @@ class Home extends Component {
         )
     }
 }
-//         return (
-//             <div >
-//                 <ul>
-//                     {
-//                         this.props.reducer.menuItems ? this.props.reducer.menuItems.map((recipe, index) => {
-//                             return (
-//                                 <article onClick={() => { this.props.onPostFood (this.props.id)}}>
-//                                     <div key={index} style={recipecss}>
-                    
-//                                         <li>{recipe.recipe.label}</li>
-//                                         <img src={recipe.recipe.image}style={imgcss}></img>
-//                                         {recipe.recipe.yield}
-//                                     </div>
-//                                 </article>)
-                            
-//                         }) : null
 
-//                     }
-//                 </ul>
-
-//             </div>
-
-//         )
-//     }
-// }
 const mapStateToProps = state => {
-    console.log(state)
+
     return {
         ...state
     }
@@ -67,7 +43,7 @@ const mapDispatchToProps = dispatch => {
     return {
 
         onGetFood: () => dispatch(actionCreators.fetchFoodAsync()),
-        // onPostFood:(id) =>dispatch(actionCreators.createProject ())
+       
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

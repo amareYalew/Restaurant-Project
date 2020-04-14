@@ -2,13 +2,8 @@
 import axios from "axios";
 export const ALL_FOODS = 'ALL_FOODS';
 export const FOODITEM = 'FOODITEM';
-export const CREATE_PROJECT = "CREATE_PROJECT";
 export const LOGIN = "LOGIN";
 export const SIGNUP ="SIGNUP"
-
-const APP_ID = "7476e566";
-const APP_KEY = "c00a2e2ceb4cccfb20b49cbed5261c26";
-
 
 export const initFood= (foods) => {
     return {
@@ -22,7 +17,7 @@ export const initFood= (foods) => {
     axios.get(`http://localhost:5000/products`)
         .then(response => {
         console.log(response.data)
-       dispatch(initFood(response.data.hits));
+       dispatch(initFood(response.data));
     });
     }
 }
@@ -37,7 +32,7 @@ export const userLogin = () => {
             
             axios({
                 method: 'post',
-                url: '/user/12345',
+                url: 'http://localhost:5000/users/add',
                 data: {
                   email:userLogin.email,
                   password: userLogin.password
@@ -58,7 +53,6 @@ export const userLogin = () => {
 
 export const userSignUpRegis= () => { 
 
-    
     return (dispatch, getState) => {
             
         const userSignUp = getState().reducer.signUp
@@ -66,11 +60,11 @@ export const userSignUpRegis= () => {
             
             axios({
                 method: 'post',
-                url: '/user/12345',
+                url: 'http://localhost:5000/users/add',
                 data: {
-                    fullName:userSignUp.fullName,
+                    username:userSignUp.fullName,
+                    email: userSignUp.email,
                     password: userSignUp.password,
-                    email:userSignUp.email,
                 }
             }).then(res => { 
                 if (res === true) { 
@@ -87,6 +81,9 @@ export const userSignUpRegis= () => {
     
 
 }
+
+
+
 export const foodItemFetching= () => { 
 
     
@@ -106,13 +103,6 @@ export const foodItemFetching= () => {
                     image: FoodItemForm.image,
                     description:FoodItemForm.image
                 }
-            }).then(res => { 
-                if (res === true) { 
-                    dispatch({ type: 'signUpSubmit',success:true });
-                }
-                else {
-                    dispatch({ type: 'signUpSubmit',success:false });
-                }
             })
            
         }
@@ -130,20 +120,13 @@ export const foodItemFetchingUmer= () => {
        
             axios({
                 method: 'post',
-                url: '/user/12345',
+                url: 'http://localhost:5000/products/add',
                 data: {
                     title:FoodItemForm.title,
                     price:FoodItemForm.price,
                     ingredient: FoodItemForm.ingredient,
                     image: FoodItemForm.image,
                     description:FoodItemForm.image
-                }
-            }).then(res => { 
-                if (res === true) { 
-                    dispatch({ type: 'signUpSubmit',success:true });
-                }
-                else {
-                    dispatch({ type: 'signUpSubmit',success:false });
                 }
             })
            

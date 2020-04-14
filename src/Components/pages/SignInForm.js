@@ -40,7 +40,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onLoginInputHandler: (event, field) =>
-      dispatch({ type: 'LOGINformInput', field: field, event: event }),
+      dispatch({ type: 'LOGINFORMINPUT', field: field, event: event }),
     
     
     onLoginSubmit: (event) => {

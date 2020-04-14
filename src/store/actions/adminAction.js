@@ -1,9 +1,7 @@
 import axios from "axios";
 export const ALL_FOODS = 'ALL_FOODS';
+export const REMOVE_FOOD = 'REMOVE_FOOD';
 
-
-const APP_ID = "7476e566";
-const APP_KEY = "c00a2e2ceb4cccfb20b49cbed5261c26";
 
 
 export const allFood= (foods) => {
@@ -15,30 +13,37 @@ export const allFood= (foods) => {
    
    export const fetchFoodItems = () => {
     return dispatch => {
-    axios.get(`https://api.edamam.com/search?q="chicken"&app_id=${APP_ID}&app_key=${APP_KEY}`)
+    axios.get(`http://localhost:5000/products`)
         .then(response => {
         console.log(response.data)
-       dispatch(allFood(response.data.hits));
+     dispatch(allFood(response.data));
     });
+    }
+}
+
+
+export const deleteFood= (request) => {
+    return {
+    type: REMOVE_FOOD ,
+    foods:  request
     }
 }
 export const DeleteItems = (id) => {
-       console.log(id)
+   console.log(id)
     return dispatch => {
-    axios.delete(``)
-        .then(response => {
-        console.log(response.data)
-       dispatch(allFood(response.data.hits));
+        const request = axios.delete(`http://localhost:5000/products/${id}`)
+        .then(response => { 
+       dispatch(deleteFood(request));
     });
     }
 }
-export const EditItems = (id) => {
-       console.log(id)
-    return dispatch => {
-    axios.Update(``)
-        .then(response => {
-        console.log(response.data)
-       dispatch(allFood(response.data.hits));
-    });
-    }
-}
+// export const EditItems = (id) => {
+//        console.log(id)
+//     return dispatch => {
+//     axios.Update(``)
+//         .then(response => {
+//         console.log(response.data)
+//        dispatch(allFood(response.data.hits));
+//     });
+//     }
+// }

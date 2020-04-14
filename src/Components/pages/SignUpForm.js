@@ -56,8 +56,8 @@ const mapDispatchToProps = dispatch => {
         dispatch({ type: 'SIENUPFORMINPUT', field: field, event: event }),
       
       
-      onSinUpSubmit: (event) => {
-        // dispatch({ type: 'SIGNUPSUBMIT' })
+        onSinUpSubmit: (event) => {
+            event.preventDefault()
           dispatch( userSignUpRegis())
              event.preventDefault()
       }

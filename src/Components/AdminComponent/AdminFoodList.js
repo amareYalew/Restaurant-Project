@@ -10,19 +10,24 @@ class Home extends Component {
 
     render() {
         
-        console.log(this.props)
-        const FoodItems = this.props.adminReducer.menuItems ? this.props.reducer.menuItems.map((item, index) => {
-            return (
+        console.log(this.props.adminReducer.menuItems ,"++++++++++")
+        const FoodItems = this.props.adminReducer.menuItems ?
+            this.props.reducer.menuItems.map((item, index) => {
+                console.log(item)
+                return (
+                <div style={foodCss}>
                 <Link  key={index}>
-                        <div style={foodCss}>
-                        <li>{item.recipe.label}</li>
-                        <img src={item.recipe.image} style={imgcss}></img>
-                        <h6>{item.recipe.yield}</h6>
-                        <button onClick={(event) => { this.props.onDeleteFood(item.recipe.id) }}>Delete-Item</button>
-                        <Link to={`edit/:id`} onClick={(event) => { this.props.onDeleteFood(item.recipe.id) }}>Edit-Item</Link>
+                        <div >
+                        <li>{item.title}</li>
+                        <img src={item.imageURL} style={imgcss}></img>
+                        <h6>{item.price}</h6>
+                        <p>{item._id}PPP</p> 
+                        
+                        {/* <Link to={`edit/id`} onClick={(event) => { this.props.onDeleteFood(item.id) }}>Edit-Item</Link> */}
                     </div>
                 </Link>
-            )
+                 <button onClick={() => { this.props.onDeleteFood(item._id) }}>Delete-Item</button>
+                 </div>       )
 
         }) : null
 
@@ -35,7 +40,7 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log(state)
+   
     return {
         ...state
     }
@@ -46,7 +51,7 @@ const mapDispatchToProps = dispatch => {
 
         onGetFoods: () => dispatch(actionCreators.fetchFoodItems()),
         onDeleteFood:(id) =>dispatch(actionCreators.DeleteItems (id)),
-        onEditFood:(id) =>dispatch(actionCreators.EditItems (id))
+
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
