@@ -6,13 +6,20 @@ import {userSignUpRegis} from '../../store/actions/action'
 
 class SignUpForm extends Component {
 
+    // Home page Render Handler function 
 
+     signUpHandler = (event) => {
+        this.props.onSinUpSubmit(event)
+    this.props.history.push('/')
+    }
+
+    
 
     render() {
         console.log(this.props)
         return (
-            <div style={recipecss}>
-                <form onSubmit={(event) => { this.props.onSinUpSubmit(event) }} className="FormFields">
+            <div style={recipe}>
+                <form onSubmit={(event) => { this.signUpHandler(event) }} className="FormFields">
                     <div className="FormField">
                         <label className="FormField__Label" htmlFor="name">Full Name</label>
                         <input type="text" id="name" className="FormField__Input" placeholder="Enter your full name" name="name" value={this.props.reducer.signUp.fullName} onChange={(event) =>
@@ -64,13 +71,13 @@ const mapDispatchToProps = dispatch => {
         onSinUpSubmit: (event) => {
             event.preventDefault()
           dispatch( userSignUpRegis())
-             event.preventDefault()
+           
       }
     }
   }
   export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm)
 
-const recipecss = {   
+const recipe= {   
   borderRadius: "5px",
   boxShadow: "0px 5px 20px rgb(71,71,71)",
   margin:"10px",

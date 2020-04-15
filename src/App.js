@@ -1,22 +1,23 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './Components/pages/Home';
-import About from './Components/pages/About';
-import Menu from './Components/pages/Menu';
-import Contact from './Components/pages/Contact';
-import NoMatch from './Components/pages/NoMatch';
-import Cart from './Components/pages/Cart'
-import SignUpForm from './Components/pages/SignUpForm';
-import SignInForm from './Components/pages/SignInForm';
-import FoodForm from './Components/pages/FoodForm'
-import Layout from './Components/Layout';
-import { NavigationBar } from './Components/NavigationBar';
-import { Jumbotron } from './Components/Jumbotron';
-import UmerPage from './Components/pages/Forms/umerPage';
-import FoodItem from './Components/pages/FoodItem';
-import AdminItem from '../src/Components/AdminComponent/AdminFoodList';
-import EditPage from '../src/Components/pages/EditPage';
+import Home from './Components/UserComponent/Home';
+import About from './Components/UserComponent/About';
+import Menu from './Components/UserComponent/Menu';
+import Contact from './Components/UserComponent/Contact';
+import NoMatch from './Components/UserComponent/NoMatch';
 
+import SignUpForm from './Components/UserComponent/SignUpForm';
+import SignInForm from './Components/UserComponent/SignInForm';
+import FoodForm from './Components/AdminComponent/FoodForm'
+import Layout from './Components/pages/Layout';
+import { NavigationBar } from './Components/pages/NavigationBar';
+import { Jumbotron } from './Components/pages/Jumbotron';
+import FoodItem from './Components/UserComponent/FoodItem';
+import AdminItem from '../src/Components/AdminComponent/AdminFoodList';
+import EditPage from './Components/AdminComponent/EditPage';
+import Payment from './Components/UserComponent/Payment';
+import Orders from './Components/UserComponent/Orders'
+import Footer from './Components/pages/Footer';
 import './App.css';
 
 
@@ -35,17 +36,19 @@ class App extends React.Component {
               <Route exact path='/' component={Home} />
               <Route exact path='/menu' component={Menu} />
               <Route path='/items' component={AdminItem} />
+              <Route path='/about' component={About} />
               <Route path='/contact' component={Contact} />
               <Route path='/fooditem/:id' component={FoodItem} />
               <Route path='/form' component={FoodForm} />
-              <Route path ='/cart' component = {Cart}/>
+              <Route path='/payment' component={Payment} />    
               <Route path='/signin' component={SignInForm}/>
               <Route exact path='/signup' component={SignUpForm} />
-              <Route path="/umer"component={UmerPage}/>
-              <Route path="/edit/:id"component={EditPage}/>
+              <Route path="/edit/:id" component={EditPage} />
+              <Route path="/orders/:id"component={Orders}/>
               <Route component={NoMatch} />
             </Switch>
           </Layout>
+          <Footer/>
           </Router>
       </React.Fragment>
 

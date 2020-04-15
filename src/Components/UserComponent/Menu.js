@@ -14,12 +14,11 @@ class Menu extends Component {
         const FoodItems = this.props.reducer.menuItems ? this.props.reducer.menuItems.map((item, index) => {
             return (
                 <div style={foodCss}>
-                    <>{item.title}</>
+                    <h6>{item.title}</h6>
                     <Link to={`/fooditem/${index}`} key={index}>
-
-                        <img src={item.image} style={imgcss}></img>
+                    <img src={item.image} style={imgcss}></img>
                     </Link>
-                        $ {item.price}
+                       <h6> ${item.price}</h6>
                 </div>
 
             )
@@ -54,9 +53,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(Menu);
 
 
 const foodCss = {
-    borderRadius: "5px",
-    boxShadow: "0px 5px 20px rgb(71,71,71)",
-    margin: "10px",
+    borderRadius: "15px",
+    // boxShadow: "px 5px 20px rgb(71,71,71)",
+    margin: "50px",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-around",
@@ -65,9 +64,9 @@ const foodCss = {
     minWidth: "40%"
 }
 const imgcss = {
-    borderRadius: "100%",
-    width: "100px",
-    hight: "100px",
+    borderRadius: "1000%",
+    width: "300px",
+    hight: "300px",
     hover : 'true'
 
 }

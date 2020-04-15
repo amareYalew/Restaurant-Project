@@ -1,20 +1,29 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { browserHistory } from 'react-router'
+import { Link, useHistory, withRouter } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import { foodItemFetching } from '../../store/actions/action'
 
 
+
 class FoodForm extends Component {
 
+// tO home page render Handler
+  submitHandler = (event) => {
+    this.props.onFormSubmit(event)
+    this.props.history.push('/')
+    
 
+  }
 
   render() {
-    console.log(this.props.reducer)
+    console.log(this.props)
     return (
-      
-      <div style={recipecss}>
+
+      <div style={recipe}>
         <h6>Add New Menu</h6>
-        <form onSubmit={(event) => { this.props.onFormSubmit(event) }} className="FormFields">
+        <form onSubmit={(event) => { this.submitHandler(event) }} className="FormFields">
           <div className="FormField">
             <label className="FormField__Label" htmlFor="title">Menu Title</label>
             <input type="text" id="titleId" className="FormField__Input" name="title" onChange={(event) => { this.props.onFormInputHandler(event, 'title') }} value={this.props.reducer.login.title} required />
@@ -58,13 +67,14 @@ const mapDispatchToProps = dispatch => {
 
     onFormSubmit: (event) => {
       event.preventDefault()
+
       dispatch(foodItemFetching())
 
     }
   }
 }
 
-const recipecss = {
+const recipe = {
   borderRadius: "5px",
   boxShadow: "0px 5px 20px rgb(71,71,71)",
   margin: "10px",
@@ -75,4 +85,4 @@ const recipecss = {
   alignItems: "center",
   minWidth: "40%"
 }
-export default connect(mapStateToProps, mapDispatchToProps)(FoodForm)
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(FoodForm))

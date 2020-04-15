@@ -110,30 +110,8 @@ export const foodItemFetching= () => {
     
 
 }
-export const foodItemFetchingUmer= () => { 
 
-    
-    return (dispatch, getState) => {
-            
-        const FoodItemForm = getState().umerReducer.menuAddForm;
-         console.log(getState().umerReducer.menuAddForm)
-     
-       
-            axios({
-                method: 'post',
-                url: 'http://localhost:5000/products/add',
-                data: {
-                    title:FoodItemForm.title,
-                    price:FoodItemForm.price,
-                    image: FoodItemForm.image, 
-                    description: FoodItemForm.description
-                }
-            })
-           
-        }
-    
 
-}
 
 
 

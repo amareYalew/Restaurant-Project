@@ -6,7 +6,10 @@ const initialState = {
     signUp: { username: "",  email: '',password: "", role: ""},
     isLogin: false,
     isRegister: false,
-    item: null
+    item: null,
+    orders: [],
+    totalPrice: 0,
+    currentPrice: 0
 }
 
 
@@ -20,6 +23,38 @@ const reducer = (state = initialState, action) => {
                 menuItems: action.foods
                
             };
+        
+        // Adding orders
+        case ('ADD_TO-ORDERS'):
+            return {
+                ...state,
+                orders: state.orders.concat(action.orderedFood)
+            }
+
+        // Removing orders
+
+        case ('REMOVE-ORDERS'):
+         
+            return {
+                ...state,
+                orders: state.orders.filter(item => item._id != action.foodid)
+            }
+
+        // calculate total price
+
+        case ('TOTAL-PRICE'):
+            return {
+                ...state,
+                totalPrice: state.totalPrice + action.value
+            }
+
+        // calculate current price
+
+        case ('CURRENT-PRICE'):
+            return {
+                ...state,
+                totalPrice: state.totalPrice - action.value
+            }
         
         
         // Updating Login State from Login Form

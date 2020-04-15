@@ -67,17 +67,12 @@ export const NavigationBar = () => (
           </Nav.Item>
           <Nav.Item>
             <Nav.Link>
-              <Link to="/cart">Cart</Link>
+              <Link to="/orders/">Order</Link>
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link>
               <Link to="/form">Form</Link>
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link>
-              <Link to="/umer">Umer</Link>
             </Nav.Link>
           </Nav.Item>
         </Nav>
