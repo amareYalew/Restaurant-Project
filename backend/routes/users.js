@@ -56,7 +56,7 @@ users.route('/login').post((req, res) => {
         .then(user => {
            
             if (user) {
-                if (bcrypt.compare(req.body.password, user.password)) {
+                if (bcrypt.compare(req.body.password, user.password)) { 
                     // password match
                     console.log(user)
                     const payload = {

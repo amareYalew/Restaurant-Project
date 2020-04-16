@@ -5,6 +5,10 @@ import { userLogin } from '../../store/actions/action'
 
 class SignInForm extends Component {
 
+  signinHandler = (event) => {
+        this.props.onSinUpSubmit(event)
+    this.props.history.push('/')
+    }
 
 
   render() {
@@ -12,7 +16,7 @@ class SignInForm extends Component {
     return (
 
       <div style={recipecss}>
-        <form onSubmit={(event) => { this.props.onLoginSubmit(event) }} className="FormFields">
+        <form onSubmit={(event) => { this.props.signinHandler(event) }} className="FormFields">
           <div className="FormField">
             <label className="FormField__Label" htmlFor="email">E-Mail Address</label>
             <input type="email" id="email" className="FormField__Input" placeholder="Enter your email" name="email" onChange={(event) => { this.props.onLoginInputHandler (event,'email')}} value={this.props.reducer.login.email} required/>
