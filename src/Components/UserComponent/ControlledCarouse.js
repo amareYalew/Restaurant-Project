@@ -15,7 +15,7 @@ function ControlledCarousel() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://assets.bonappetit.com/photos/596a58b75df40d1371270626/1:1/w_1600%2Cc_limit/grilled-halibut-and-bok-choy-with-coconut-lime-dressing.jpg"
+          src="https://gamechangersmovie.com/wp-content/uploads/2019/09/recipes-header-1600x1066.jpg"
           alt="First slide"
         />
         <Carousel.Caption>
@@ -26,7 +26,7 @@ function ControlledCarousel() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://assets.bonappetit.com/photos/596a58b75df40d1371270626/1:1/w_1600%2Cc_limit/grilled-halibut-and-bok-choy-with-coconut-lime-dressing.jpg"
+          src="https://www.foodsafety.gov/sites/default/files/styles/og_image_style/public/2019-05/Keep%20Food%20Safe.jpg?h=a4d068ee&itok=1SFsheMq"
           alt="First slide"
         />
         <Carousel.Caption>
@@ -37,7 +37,7 @@ function ControlledCarousel() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://assets.bonappetit.com/photos/596a58b75df40d1371270626/1:1/w_1600%2Cc_limit/grilled-halibut-and-bok-choy-with-coconut-lime-dressing.jpg"
+          src="https://lh3.googleusercontent.com/proxy/MGZ09OX6x9B5YM5tg8gNxnTfu0D2yMWhwfdyXQTD8kaAR-uUXfGbAGrSli8w43ep1ZtT2lOKBWOKm3ROnbKuQrd_c6kTY_vYhc3o1PgdzaNswu8i5NZxKq9I8-75r9xmKVP8vdXG5kA8a9H9EmvgHYY"
           alt="First slide"
         />
         <Carousel.Caption>
@@ -48,7 +48,7 @@ function ControlledCarousel() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="https://assets.bonappetit.com/photos/596ccdeeb85671732e0d55a8/1:1/w_1600%2Cc_limit/buckwheat-and-shiitake-mushroom-salad-with-gouda.jpg"
+          src="https://dta0yqvfnusiq.cloudfront.net/thewaterstreetgrill/2016/12/entreesmenupic2-161202-5841c3d988f25.jpg"
           alt="Second slide"
         />
 

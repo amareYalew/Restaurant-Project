@@ -9,7 +9,8 @@ const initialState = {
     item: null,
     orders: [],
     totalPrice: 0,
-    currentPrice: 0
+    currentPrice: 0,
+    role:'user'
 }
 
 
@@ -85,9 +86,20 @@ const reducer = (state = initialState, action) => {
                 menuForm:copyOfMenuForm
                
             };
-       
+            case 'loginsubmit':   
+            return {
+                ...state,
+                role:action.role
+               
+            };
         
- 
+            case 'SET_CURRENT_USER':   
+            return {
+                ...state,
+                role:action.role
+               
+            };
+        
                
     default:
          return state;

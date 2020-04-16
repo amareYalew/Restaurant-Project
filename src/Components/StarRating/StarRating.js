@@ -2,7 +2,7 @@
  import React from 'react';
 import ReactDOM from 'react-dom';
 import StarRatingComponent from 'react-star-rating-component';
-
+import './StarRating.css'
 class StarRating extends React.Component {
     constructor() {
         super();
@@ -36,7 +36,7 @@ class StarRating extends React.Component {
                     onStarClick={
                     this.onStarClick.bind(this)}
                 />
-                <h5> your rating {rating}</h5>
+               
             </div>
 
         );

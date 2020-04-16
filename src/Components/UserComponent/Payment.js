@@ -38,7 +38,7 @@ export default class PaymentForm extends React.Component {
 
                             <div className="FormField">
                                 <label className="FormField__Label" htmlFor="image">Card Number</label>
-                                <input type="" id="image" name="avater" accept='number'
+                                <input type="number" id="image" name="avater" accept='number'
                                   />
                             </div>
                             <div className="FormField">

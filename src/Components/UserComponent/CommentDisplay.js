@@ -32,29 +32,22 @@ export default class ExercisesList extends Component {
     commentList() {
         const mine = this.state.comments.map(currentcomment => {
           return currentcomment
-         //console.log(currentcomment)
         })
         return mine
     }
 
     render() {
 
-        // console.log(this.state.comments[0].description)
-
-        console.log(this.commentList())
+        
         const commen = this.commentList();
-        //console.log(commen)
         let displaycomment = commen.map((item, index) => {
             console.log(item)
             return (
                 <div>
-                <div className="form-group">
-                <select multiple class="form-control" id="exampleFormControlSelect2">
-            <option>{index+1}. 
-            {item.description} 
-            {item.username}
-            {item.date} </option>
-                </select>
+                <div className="form-group"  style={foodCss} >
+                <strong multiple class="form-control" id="exampleFormControlSelect2">
+            <p> @ {item.username} #{item.description}, On Date#:{item.date} </p>
+                </strong>
             </div>
                 </div>
             )
@@ -63,4 +56,16 @@ export default class ExercisesList extends Component {
             <div>{displaycomment}</div>
         )
     }
+}
+const foodCss = {
+    borderRadius: "5px",
+    boxShadow: "0px 5px 20px rgb(71,71,71)",
+    margin: "10px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-around",
+    background: "white",
+    alignItems: "center",
+    minWidth: "40%",
+    text :"font-weight-bold font-italic"
 }

@@ -58,7 +58,7 @@ class Orders extends Component {
                     <p> Order More</p>
                 </Link>
                 <p> Total price: {'$'}{totalPrice}</p>
-                <Link to={`/payment/`}> Place an Order </Link>
+                <Link to={`/payment/`}> Place Order </Link>
             </div>
         )
     }

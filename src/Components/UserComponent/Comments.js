@@ -74,12 +74,12 @@ export default class CreateComments extends Component {
     render() {
         return (
             <div>
-                <h4> Please leave a comment! </h4>
+                <h3>Please leave a comment! </h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>Your name: </label>
-                        <input
-                            type="text"
+                        <label>Full Name: </label>
+                        <input 
+                            type="text" 
                             className="form-control"
                             value={this.state.username}
                             onChange={this.onChangeUsername}

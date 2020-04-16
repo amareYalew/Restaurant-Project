@@ -2,7 +2,7 @@ import React from 'react'
 import { Nav, Navbar } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
-
+import {connect} from 'react-redux'
 const Styles = styled.div`
 
 .navbar{
@@ -24,10 +24,15 @@ a,.nav-link{
 }
 `;
 
-export const NavigationBar = () => (
+class NavigationBar extends React.Component{
+  
+  render(){
+console.log(this.props)
+
+return  (
   <Styles>
     <Navbar expand="lg">
-      <Navbar.Brand href="/">Code Life</Navbar.Brand>
+      <Navbar.Brand href="/">COVID-Resturant</Navbar.Brand>
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -50,16 +55,25 @@ export const NavigationBar = () => (
               <Link to="/about">About</Link>
             </Nav.Link>
           </Nav.Item>
-          <Nav.Item>
+         
+            {this.props.reducer.role ==='admin'? (
+             <Nav.Item>
             <Nav.Link>
               <Link to="/items">AdminMenu</Link>
             </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
+            </Nav.Item>
+
+            ) : null}
+            
+            {this.props.reducer.role ==='admin'? (
+             <Nav.Item>
             <Nav.Link>
-              <Link to="/form">Form</Link>
+              <Link to="/form">AddMenu</Link>
             </Nav.Link>
-          </Nav.Item>
+            </Nav.Item>
+
+            ) : null}
+          
           <Nav.Item>
             <Nav.Link>
               <Link to="/orders/"></Link>
@@ -82,3 +96,16 @@ export const NavigationBar = () => (
   </Styles >
 )
 
+  }
+  
+ 
+
+}
+
+
+const mapStateToProps =(state)=>{
+
+  return {...state}
+
+}
+export default connect(mapStateToProps)(NavigationBar) 

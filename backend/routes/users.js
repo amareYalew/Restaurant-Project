@@ -50,7 +50,7 @@ users.route('/add').post((req, res) => {
 
 // signin post
 users.route('/login').post((req, res) => {
-    User.find({
+    User.findOne({
         email: req.body.email
     })
         .then(user => {
@@ -58,7 +58,7 @@ users.route('/login').post((req, res) => {
             if (user) {
                 if (bcrypt.compare(req.body.password, user.password)) {
                     // password match
-                    console.log(user,"hehhhhhhhhhhhhh")
+                    console.log(user)
                     const payload = {
                         _id: user._id,
                         username: user.username,
@@ -74,7 +74,7 @@ users.route('/login').post((req, res) => {
                         expiresIn: 1440
                     })
                   //  console.log(token)
-                    res.send(token)
+                    res.json({token:token,role:user.role})
                    console.log("i got mytokeen=====:" + token)
                 } else {
                     //password don`t match 

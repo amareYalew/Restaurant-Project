@@ -4,8 +4,8 @@ import Comments from '../UserComponent/Comments';
 import CommentsDisplay from '../UserComponent/CommentDisplay';
 
 
-import Container from 'react-bootstrap/Container';
-import ControlledCarousel from './ControlledCarouse';
+import Container from 'react-bootstrap/Container'
+import ControlledCarousel from './ControlledCarouse'
 import StarRating from '../../Components/StarRating/StarRating';
 
 
@@ -14,8 +14,9 @@ class Home extends Component {
     return (
       <Container>
      
+
         <div>
-          <h2>Hello My Restaurant </h2>
+          <h2>Welcome to our Restaurant </h2>
           <p>A great restaurant website can attract new customers, maintain loyal ones,
           and raise the overall profile of the establishment outside of the physical location.</p>
 
@@ -34,28 +35,19 @@ class Home extends Component {
         <Menu>
           {this.props.children}
         </Menu>
-        <div style={{ textAlign: "center" }}>
+        
+        
 
-        <StarRating>
-        </StarRating>
-
-      </div>
-
-
-        <Comments/>
+               <Comments/>
         <CommentsDisplay />
         
 
       </Container>
-
-   
 
 
     )
   }
 
 }
-
-
 
 export default Home;

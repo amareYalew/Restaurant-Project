@@ -37,13 +37,3 @@ export const DeleteItems = (id) => {
     });
     }
 }
-// export const EditItems = (id) => {
-//        console.log(id)
-//     return dispatch => {
-//     axios.Update(``)
-//         .then(response => {
-//         console.log(response.data)
-//        dispatch(allFood(response.data.hits));
-//     });
-//     }
-// }

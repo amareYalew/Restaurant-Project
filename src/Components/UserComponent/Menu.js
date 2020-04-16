@@ -4,6 +4,7 @@ import * as actionCreators from '../../store/actions/action'
 import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import CardColumns from 'react-bootstrap/CardDeck'
+import StarRating from '../../Components/StarRating/StarRating';
 
 class Menu extends Component {
 
@@ -18,21 +19,22 @@ class Menu extends Component {
         const FoodItems = this.props.reducer.menuItems ? this.props.reducer.menuItems.map((item, index) => {
 
             return (
-                <div className="container">
+                <div className="container font-weight-bold font-italic">
                     <Card style={foodCss} >
                         
                        
-                        <div>
-                            <h6>{item.title}</h6>
+                        <div >
+                            <p className= "">{item.title}</p>
                             <Link to={`/fooditem/${index}`} key={index}>
                             <img variant="top" src={item.image} style={imgcss} /></Link>
-                                <h6> $ {item.price}</h6>
+                                <p> $ {item.price}</p>
                     
                         </div>
 
                     </Card>
                    
-                  
+                    <StarRating>
+        </StarRating>
                 </div>
 
             )
@@ -68,7 +70,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(Menu);
 
 const foodCss = {
     borderRadius: "5px",
-    boxShadow: "0px 5px 20px rgb(71,71,71)",
     margin: "10px",
     display: "flex",
     flexDirection: "column",
