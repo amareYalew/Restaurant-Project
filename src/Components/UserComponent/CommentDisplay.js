@@ -50,7 +50,10 @@ export default class ExercisesList extends Component {
                 <div>
                 <div className="form-group">
                 <select multiple class="form-control" id="exampleFormControlSelect2">
-            <option>{index+1}. {item.description},{item.username}, {item.date} </option>
+            <option>{index+1}. 
+            {item.description} 
+            {item.username}
+            {item.date} </option>
                 </select>
             </div>
                 </div>

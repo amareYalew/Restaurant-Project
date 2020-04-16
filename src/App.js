@@ -18,6 +18,7 @@ import EditPage from './Components/AdminComponent/EditPage';
 import Payment from './Components/UserComponent/Payment';
 import Orders from './Components/UserComponent/Orders'
 import Footer from './Components/pages/Footer';
+import StarRating from './Components/StarRating/StarRating';
 
 import './App.css';
 
@@ -46,6 +47,8 @@ class App extends React.Component {
               <Route exact path='/signup' component={SignUpForm} />
               <Route path="/edit/:id" component={EditPage} />
               <Route path="/orders/:id"component={Orders}/>
+              <Route exact path='/starRating' component={StarRating} />
+
               <Route component={NoMatch} />
             </Switch>
           </Layout>

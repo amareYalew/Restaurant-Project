@@ -4,15 +4,16 @@ import Comments from '../UserComponent/Comments';
 import CommentsDisplay from '../UserComponent/CommentDisplay';
 
 
-import Container from 'react-bootstrap/Container'
-import ControlledCarousel from './ControlledCarouse'
+import Container from 'react-bootstrap/Container';
+import ControlledCarousel from './ControlledCarouse';
+import StarRating from '../../Components/StarRating/StarRating';
+
 
 class Home extends Component {
   render() {
     return (
       <Container>
      
-
         <div>
           <h2>Hello My Restaurant </h2>
           <p>A great restaurant website can attract new customers, maintain loyal ones,
@@ -33,6 +34,14 @@ class Home extends Component {
         <Menu>
           {this.props.children}
         </Menu>
+        <div style={{ textAlign: "center" }}>
+
+        <StarRating>
+        </StarRating>
+
+      </div>
+
+
         <Comments/>
         <CommentsDisplay />
         
