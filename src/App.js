@@ -18,6 +18,7 @@ import EditPage from './Components/AdminComponent/EditPage';
 import Payment from './Components/UserComponent/Payment';
 import Orders from './Components/UserComponent/Orders'
 import Footer from './Components/pages/Footer';
+
 import './App.css';
 
 

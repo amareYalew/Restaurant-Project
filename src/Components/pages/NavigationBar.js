@@ -57,22 +57,22 @@ export const NavigationBar = () => (
           </Nav.Item>
           <Nav.Item>
             <Nav.Link>
+              <Link to="/form">Form</Link>
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link>
+              <Link to="/orders/"></Link>
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link>
               <Link to="/signin">Sign In</Link>
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Nav.Link>
               <Link to="/signup"></Link>
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link>
-              <Link to="/orders/">Order</Link>
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link>
-              <Link to="/form">Form</Link>
             </Nav.Link>
           </Nav.Item>
         </Nav>
@@ -82,21 +82,3 @@ export const NavigationBar = () => (
   </Styles >
 )
 
-// export const NavigationBar = () => (
-//     <Styles>
-//         <Navbar expand="lg">
-//             <Navbar.Brand href="/"> @#$ Restaurant </Navbar.Brand>
-//             <Nav.Item><Nav.Link href='/'>Home</Nav.Link></Nav.Item>
-//             <Nav.Item><Nav.Link href='/about'>About</Nav.Link></Nav.Item>
-//             <Nav.Item><Nav.Link href='/Contact'>Contact</Nav.Link></Nav.Item>
-//             <Navbar.Toggle aria-controls='basic-navbar-nav' />
-//             <Navbar.Collapse id="basic-navbar-nav">
-//                 <Nav className="ml-auto">
-//                     {/* <Nav.Item><Nav.Link href='/'>Home</Nav.Link></Nav.Item>
-//                     <Nav.Item><Nav.Link href='/about'>About</Nav.Link></Nav.Item> */}
-//                     <Nav.Item><Nav.Link href='/Contact'>Login</Nav.Link></Nav.Item> 
-//                 </Nav>
-//             </Navbar.Collapse>
-//         </Navbar>
-//     </Styles>
-// )

@@ -1,9 +1,17 @@
 import React, { Component } from 'react'
-import Menu from './Menu'
+import Menu from '../UserComponent/Menu';
+import Comments from '../UserComponent/Comments';
+import CommentsDisplay from '../UserComponent/CommentDisplay';
+
+
+import Container from 'react-bootstrap/Container'
+import ControlledCarousel from './ControlledCarouse'
+
 class Home extends Component {
   render() {
     return (
-      <div>
+      <Container>
+     
 
         <div>
           <h2>Hello My Restaurant </h2>
@@ -19,11 +27,19 @@ class Home extends Component {
 
         </div>
 
+        <ControlledCarousel>
+          {this.props.children}
+        </ControlledCarousel>
         <Menu>
           {this.props.children}
         </Menu>
+        <Comments/>
+        <CommentsDisplay />
+        
 
-      </div>
+      </Container>
+
+   
 
 
     )

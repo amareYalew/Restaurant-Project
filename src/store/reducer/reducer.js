@@ -87,14 +87,7 @@ const reducer = (state = initialState, action) => {
             };
        
         
-         // Updating  isLogin state from action page; 
-        case 'loginSubmit':
-            return { ...state, isRegister: action.success };
-            
-        
-        // Updating isRegister state from action page; 
-        case 'signUpSubmit':     
-            return { ...state, isRegister: action.success };
+ 
                
     default:
          return state;

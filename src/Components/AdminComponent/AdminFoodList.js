@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/adminAction'
 
@@ -22,7 +23,9 @@ class Home extends Component {
                             <h6> $ {item.price}</h6>
 
                         </div>
-                        <button onClick={() => { this.props.onDeleteFood(item._id) }}>Delete-Item</button>
+                        <Link to={'/menu'}>
+                            <button onClick={() => { this.props.onDeleteFood(item._id) }} >Delete-Item</button >
+                        </Link>
                     </div>)
 
             }) : null

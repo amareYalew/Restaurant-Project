@@ -35,7 +35,7 @@ class Orders extends Component {
             return (
                 <div style={foodBeutify}>
                     <img style={imgcss} src={item.image}></img>
-                    <li price={item.price}> price: {'$'}{item.price}</li>
+                    <p>  Price: {'$'}{item.price}</p>
                     <p>{item.title}</p>
                     <button onClick={() => {
                         this.props.onRemoveOrder(item._id)
@@ -57,7 +57,7 @@ class Orders extends Component {
                 <Link to={`/menu/`}>
                     <p> Order More</p>
                 </Link>
-                <p> total price: {'$'}{totalPrice}</p>
+                <p> Total price: {'$'}{totalPrice}</p>
                 <Link to={`/payment/`}> Place Order </Link>
             </div>
         )
@@ -104,7 +104,7 @@ const foodBeutify = {
 // css on the image 
 const imgcss = {
     borderRadius: "50%",
-    width: "50px",
+    width: "100px",
     hight: "100px",
     hover:{
         backgroundColor: "green"

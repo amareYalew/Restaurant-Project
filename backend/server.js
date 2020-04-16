@@ -1,5 +1,8 @@
 const express = require('express')
 const path = require('path');
+const helmet = require('helmet'); 
+const compression = require('compression');
+
 
 const cors = require('cors');
 const mongoose = require('mongoose'); // require us to connect with the DB
@@ -13,6 +16,13 @@ const port = process.env.PORT || 5000;
 // cors middleware, allow us to parse json
 app.use(cors());
 app.use(express.json());
+
+//helps to secure express 
+app.use(helmet())
+// compression middleware helps to minimize  data size
+app.use(compression());
+
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -30,12 +40,17 @@ connection.once('open', () => {
 // // require routes
 const adminRouter = require('./routes/admin');
 const userRouter = require('./routes/users')
-//const orderRouter = require('./routes/orders')
+const commentRouter = require('./routes/comment')
+const ratingRouter = require('./routes/rating')
+
 //const errorRoutes = require('./routes/error');
 
 // // use routes
  app.use('/products', adminRouter);
- app.use('/users', userRouter);
+app.use('/users', userRouter);
+app.use('/comment', commentRouter);
+app.use('/rating', ratingRouter);
+
  //app.use('/orders', orderRouter);
 
 // listen the server

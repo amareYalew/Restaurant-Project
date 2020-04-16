@@ -36,7 +36,7 @@ class FoodForm extends Component {
 
           <div className="FormField">
             <label className="FormField__Label" htmlFor="image">URL Image</label>
-            <input type="url" id="image" name="avater" accept='image/*'
+            <input type="url" id="image" name="image" accept='image/*'
               onChange={(event) => { this.props.onFormInputHandler(event, 'image') }} value={this.props.reducer.login.image} required />
           </div>
           <div className="FormField">

@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/action'
 import { Link } from 'react-router-dom'
+import Card from 'react-bootstrap/Card'
+import CardColumns from 'react-bootstrap/CardDeck'
+
 class Menu extends Component {
 
     componentDidMount = () => {
@@ -11,14 +14,25 @@ class Menu extends Component {
     render() {
 
         // console.log(this.props.reducer.menuItems)
+
         const FoodItems = this.props.reducer.menuItems ? this.props.reducer.menuItems.map((item, index) => {
+
             return (
-                <div style={foodCss}>
-                    <h6>{item.title}</h6>
-                    <Link to={`/fooditem/${index}`} key={index}>
-                    <img src={item.image} style={imgcss}></img>
-                    </Link>
-                       <h6> ${item.price}</h6>
+                <div className="container">
+                    <Card style={foodCss} >
+                        
+                       
+                        <div>
+                            <h6>{item.title}</h6>
+                            <Link to={`/fooditem/${index}`} key={index}>
+                            <img variant="top" src={item.image} style={imgcss} /></Link>
+                                <h6> $ {item.price}</h6>
+                    
+                        </div>
+
+                    </Card>
+                   
+                  
                 </div>
 
             )
@@ -53,9 +67,9 @@ export default connect(mapStateToProps, mapDispatchToProps)(Menu);
 
 
 const foodCss = {
-    borderRadius: "15px",
-    // boxShadow: "px 5px 20px rgb(71,71,71)",
-    margin: "50px",
+    borderRadius: "5px",
+    boxShadow: "0px 5px 20px rgb(71,71,71)",
+    margin: "10px",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-around",
@@ -64,9 +78,9 @@ const foodCss = {
     minWidth: "40%"
 }
 const imgcss = {
-    borderRadius: "1000%",
-    width: "300px",
-    hight: "300px",
-    hover : 'true'
+    borderRadius: "100%",
+    width: "200px",
+    hight: "200px",
+    hover: 'true'
 
 }

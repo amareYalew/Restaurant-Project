@@ -12,54 +12,63 @@ export default class PaymentForm extends React.Component {
         number: '',
     };
 
-    handleInputFocus = (e) => {
-        this.setState({ focus: e.target.name });
+    signUpHandler = () => {
+    this.props.history.push('/')
     }
-
-    handleInputChange = (e) => {
-        const { name, value } = e.target;
-
-        this.setState({ [name]: value });
-    }
-
     render() {
         return (
             <div container>
+
                 <div id="PaymentForm">
-                    <Cards
+
+                    <div >
+                        <h2>Payment Form </h2>
+                        <Cards
                         cvc={this.state.cvc}
                         expiry={this.state.expiry}
                         focus={this.state.focus}
                         name={this.state.name}
                         number={this.state.number}
                     />
-                    <div>
-                        <input
-                            type="tel"
-                            name="number"
-                            placeholder="Card Number"
-                            onChange={this.handleInputChange}
-                            onFocus={this.handleInputFocus}
-                        />
+                        <form onSubmit={(event) => { this.signUpHandler() }} className="FormFields">
+                            <div className="FormField">
+                                <label className="FormField__Label" htmlFor="title">Your Name </label>
+                                <input type="text" id="titleId" className="FormField__Input" name="title" required />
+                            </div>
+
+                            <div className="FormField">
+                                <label className="FormField__Label" htmlFor="image">Card Number</label>
+                                <input type="number" id="image" name="avater" accept='number'
+                                  />
+                            </div>
+                            <div className="FormField">
+                                <label className="FormField__Label" htmlFor="image">Price</label>
+                                <input type="number" id="image" name="avater" accept='number'
+                                   required />
+                            </div>
+                            <div className="FormField">
+                                <label className="FormField__Label" htmlFor="Image">Address </label>
+                                <input type="text" id="DescriptionId" className="FormField__Input" name="Description"  />
+                            </div>
+
+                            <div className="FormField">
+
+                                <button type="submit" className="FormField__Button mr-20">Submit</button>
+
+                            </div>
+                        </form>
                     </div>
+                 
+
                     <div>
-                        <input
-                            type="tel"
-                            name="number"
-                            placeholder="Card Number"
-                            onChange={this.handleInputChange}
-                            onFocus={this.handleInputFocus}
-                        />
+
+                        <div>
+                            <p></p>
+                        </div>
+
                     </div>
-                    <div>
-                        <input
-                            type="tel"
-                            name="number"
-                            placeholder="Card Number"
-                            onChange={this.handleInputChange}
-                            onFocus={this.handleInputFocus}
-                        />
-                    </div>
+
+
 
                 </div>
             </div>);

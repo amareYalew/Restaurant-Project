@@ -19,7 +19,6 @@ const rootReducer = combineReducers({
 const logger = store => {
     return next => {
         return action => {
-
             const result = next(action)
             return result
         }
